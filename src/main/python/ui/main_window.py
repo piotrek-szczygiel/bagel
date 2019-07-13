@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\szczy\Documents\dev\bagel\src\main\resources\main.ui',
-# licensing of 'c:\Users\szczy\Documents\dev\bagel\src\main\resources\main.ui' applies.
+# Form implementation generated from reading ui file 'C:\Users\szczy\Documents\dev\bagel\src\build\ui\main_window.ui',
+# licensing of 'C:\Users\szczy\Documents\dev\bagel\src\build\ui\main_window.ui' applies.
 #
-# Created: Fri Jul 12 21:13:27 2019
+# Created: Sat Jul 13 13:18:15 2019
 #      by: pyside2-uic  running on PySide2 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
 
 from PySide2 import QtCore, QtGui, QtWidgets
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -32,6 +33,11 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "Bagel v0.1.0", None, -1))
-        self.button_1.setText(QtWidgets.QApplication.translate("MainWindow", "Button", None, -1))
-
+        MainWindow.setWindowTitle(
+            QtWidgets.QApplication.translate(
+                "MainWindow", "Bagel v0.1.0", None, -1
+            )
+        )
+        self.button_1.setText(
+            QtWidgets.QApplication.translate("MainWindow", "Button", None, -1)
+        )

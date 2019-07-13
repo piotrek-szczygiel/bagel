@@ -11,6 +11,12 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "compile ui",
+            "type": "shell",
+            "command": "python ${workspaceFolder}/src/build/ui/compile.py ${workspaceFolder}/src/build/ui ${workspaceFolder}/src/main/python/ui",
+            "problemMatcher": [],
         }
     ]
 }
