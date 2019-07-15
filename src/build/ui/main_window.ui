@@ -10,23 +10,82 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="acceptDrops">
+   <bool>false</bool>
+  </property>
   <property name="windowTitle">
-   <string>Bagel v0.1.0</string>
+   <string notr="true">Bagel v0.1.0</string>
+  </property>
+  <property name="locale">
+   <locale language="Polish" country="Poland"/>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="button_1">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>20</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="leftMargin">
+     <number>6</number>
     </property>
-    <property name="text">
-     <string>Button</string>
+    <property name="topMargin">
+     <number>6</number>
     </property>
-   </widget>
+    <property name="rightMargin">
+     <number>6</number>
+    </property>
+    <property name="bottomMargin">
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="tabPosition">
+       <enum>QTabWidget::North</enum>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::Rounded</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <property name="tabBarAutoHide">
+       <bool>false</bool>
+      </property>
+      <widget class="QWidget" name="tab_sales">
+       <attribute name="title">
+        <string>Sprzedaż</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QListWidget" name="listWidget_sellers"/>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title">
+           <string>Szczegółowe informacje o sprzedawcy</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_documents">
+       <attribute name="title">
+        <string>Dokumenty</string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="tab_settings">
+       <attribute name="title">
+        <string>Opcje</string>
+       </attribute>
+      </widget>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -37,8 +96,20 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu_Plik">
+    <property name="title">
+     <string>&amp;Plik</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menu_Plik"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionExit">
+   <property name="text">
+    <string>Wyjdź</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
