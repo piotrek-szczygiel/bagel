@@ -2,4 +2,5 @@ target
 
 __pycache__
 .mypy_cache
+.ropeproject
 .vscode/settings.json
