@@ -12,6 +12,7 @@ rope = "*"
 [packages]
 fbs = "*"
 pyside2 = "*"
+appdirs = "*"
 
 [requires]
 python_version = "3.6"

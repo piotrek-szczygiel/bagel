@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'C:\dev\bagel\src\build\ui\login_dialog.ui',
 # licensing of 'C:\dev\bagel\src\build\ui\login_dialog.ui' applies.
 #
-# Created: Wed Jul 17 03:12:28 2019
+# Created: Fri Jul 19 00:36:54 2019
 #      by: pyside2-uic  running on PySide2 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,7 +13,7 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_LoginDialog(object):
     def setupUi(self, LoginDialog):
         LoginDialog.setObjectName("LoginDialog")
-        LoginDialog.setWindowModality(QtCore.Qt.ApplicationModal)
+        LoginDialog.setWindowModality(QtCore.Qt.NonModal)
         LoginDialog.resize(516, 258)
         LoginDialog.setModal(True)
         self.verticalLayout = QtWidgets.QVBoxLayout(LoginDialog)

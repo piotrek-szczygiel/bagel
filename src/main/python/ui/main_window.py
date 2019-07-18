@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'C:\dev\bagel\src\build\ui\main_window.ui',
 # licensing of 'C:\dev\bagel\src\build\ui\main_window.ui' applies.
 #
-# Created: Wed Jul 17 03:12:29 2019
+# Created: Fri Jul 19 00:36:55 2019
 #      by: pyside2-uic  running on PySide2 5.13.0
 #
 # WARNING! All changes made in this file will be lost!

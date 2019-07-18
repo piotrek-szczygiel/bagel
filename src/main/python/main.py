@@ -1,48 +1,64 @@
-from fbs_runtime.application_context.PySide2 import ApplicationContext
-from ui.main_window import Ui_MainWindow
-from ui.login_dialog import Ui_LoginDialog
-from PySide2.QtWidgets import QMainWindow, QDialog
-from PySide2.QtGui import QPixmap
-
+import os
+import sqlite3
 import sys
 
-ctx = ApplicationContext()
+from appdirs import user_data_dir
+from fbs_runtime.application_context.PySide2 import ApplicationContext
+from PySide2.QtWidgets import QMessageBox
 
-
-class LoginDialog(QDialog):
-    def __init__(self, parent=None):
-        super(LoginDialog, self).__init__(parent)
-        self.ui = Ui_LoginDialog()
-        self.ui.setupUi(self)
-        self.ui.label_logo.setPixmap(QPixmap(ctx.get_resource("lock.png")))
-        self.ui.button_login.clicked.connect(self.login)
-
-    def login(self):
-        login = self.ui.input_login.text()
-        password = self.ui.input_password.text()
-
-        print(f"{login}:{password}")
-        self.close()
-
-
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super(MainWindow, self).__init__()
-        self.ui = Ui_MainWindow()
-        self.ui.setupUi(self)
-
-        self.ui.actionExit.triggered.connect(self.close)
-
-        self.ui.listWidget_sellers.addItem("Test 1")
-        self.ui.listWidget_sellers.addItem("Test 2")
-
-        self.login_form = LoginDialog(self)
-        self.login_form.show()
-
+from ctx import ctx
+from main_window import MainWindow
 
 if __name__ == "__main__":
-    main_window = MainWindow()
-    main_window.show()
+    ctx.app_ctx = ApplicationContext()
 
-    exit_code = ctx.app.exec_()
+    db_dir = user_data_dir("Bagel", "Angoland")
+    db_path = os.path.join(db_dir, "database.db")
+
+    if not os.path.isdir(db_dir):
+        os.makedirs(db_dir)
+
+    ctx.db = sqlite3.connect(db_path)
+
+    c = ctx.db.cursor()
+
+    try:
+        c.execute("select * from users")
+    except sqlite3.OperationalError:
+        c.execute(
+            r"""
+CREATE TABLE "users" (
+    "id"        INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "login"	    TEXT NOT NULL UNIQUE,
+    "password"  TEXT NOT NULL,
+    "admin"     INTEGER NOT NULL DEFAULT 0
+)
+"""
+        )
+        ctx.db.commit()
+
+    if c.fetchone() is None:
+        answer = QMessageBox.question(
+            None,
+            "Brak użytkowników",
+            "Nie znaleziono żadnego użytkownika.\n"
+            + "Czy chcesz go teraz utworzyć?",
+            QMessageBox.Yes | QMessageBox.No,
+        )
+
+        if answer == QMessageBox.Yes:
+            pass
+        else:
+            sys.exit(0)
+
+    ctx.main_window = MainWindow()
+
+    ctx.main_window.show()
+
+    ctx.log("Otwieranie bazy danych")
+
+    ctx.main_window.login_dialog.show()
+    ctx.log("Oczekiwanie na zalogowanie...")
+
+    exit_code = ctx.app_ctx.app.exec_()
     sys.exit(exit_code)
