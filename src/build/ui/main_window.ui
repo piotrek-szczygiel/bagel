@@ -104,7 +104,6 @@
    </widget>
    <addaction name="menu_Plik"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionExit">
    <property name="text">
     <string>Wyjdź</string>

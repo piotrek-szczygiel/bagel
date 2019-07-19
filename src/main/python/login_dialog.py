@@ -34,7 +34,5 @@ class LoginDialog(QDialog):
                 "Niepoprawna nazwa użytkownika lub hasło!",
             )
             self.ui.input_password.clear()
-            ctx.log(f"Niepoprawne dane logowania!", 2000)
         else:
-            ctx.log(f"Zalogowano jako {login}", 2000)
             self.close()

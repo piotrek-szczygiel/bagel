@@ -4,9 +4,10 @@ import sys
 
 from appdirs import user_data_dir
 from fbs_runtime.application_context.PySide2 import ApplicationContext
-from PySide2.QtWidgets import QMessageBox
 
+from add_user_dialog import AddUserDialog
 from ctx import ctx
+from login_dialog import LoginDialog
 from main_window import MainWindow
 
 if __name__ == "__main__":
@@ -27,38 +28,34 @@ if __name__ == "__main__":
     except sqlite3.OperationalError:
         c.execute(
             r"""
-CREATE TABLE "users" (
-    "id"        INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "login"	    TEXT NOT NULL UNIQUE,
-    "password"  TEXT NOT NULL,
-    "admin"     INTEGER NOT NULL DEFAULT 0
-)
-"""
+            CREATE TABLE "users"
+            (
+                "id"        INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                "login"	    TEXT NOT NULL UNIQUE,
+                "password"  TEXT NOT NULL,
+                "admin"     INTEGER NOT NULL DEFAULT 0
+            )
+            """
         )
         ctx.db.commit()
 
-    if c.fetchone() is None:
-        answer = QMessageBox.question(
-            None,
-            "Brak użytkowników",
-            "Nie znaleziono żadnego użytkownika.\n"
-            + "Czy chcesz go teraz utworzyć?",
-            QMessageBox.Yes | QMessageBox.No,
-        )
+    add_admin = False
 
-        if answer == QMessageBox.Yes:
-            pass
-        else:
-            sys.exit(0)
+    if c.fetchone() is None:
+        add_admin = True
 
     ctx.main_window = MainWindow()
-
     ctx.main_window.show()
 
-    ctx.log("Otwieranie bazy danych")
-
-    ctx.main_window.login_dialog.show()
-    ctx.log("Oczekiwanie na zalogowanie...")
+    if add_admin:
+        add_user_dialog = AddUserDialog(ctx.main_window)
+        add_user_dialog.ui.combo_type.setDisabled(True)
+        add_user_dialog.ui.combo_type.setCurrentIndex(1)
+        add_user_dialog.ui.label_title.setText("Dodaj administratora")
+        add_user_dialog.show()
+    else:
+        login_dialog = LoginDialog(ctx.main_window)
+        login_dialog.show()
 
     exit_code = ctx.app_ctx.app.exec_()
     sys.exit(exit_code)

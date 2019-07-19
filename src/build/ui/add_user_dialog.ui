@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>LoginDialog</class>
- <widget class="QDialog" name="LoginDialog">
+ <class>AddUserDialog</class>
+ <widget class="QDialog" name="AddUserDialog">
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
@@ -14,16 +14,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Logowanie</string>
+   <string>Dodaj użytkownika</string>
   </property>
-  <property name="modal">
-   <bool>true</bool>
-  </property>
-  <layout class="QVBoxLayout" name="verticalLayout" stretch="2,1,1">
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <spacer name="horizontalSpacer_2">
+      <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -49,19 +46,19 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="label_title">
        <property name="font">
         <font>
-         <pointsize>36</pointsize>
+         <pointsize>24</pointsize>
         </font>
        </property>
        <property name="text">
-        <string>Logowanie</string>
+        <string>Dodaj użytkownika</string>
        </property>
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer">
+      <spacer name="horizontalSpacer_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -78,46 +75,68 @@
    <item>
     <layout class="QFormLayout" name="formLayout">
      <item row="0" column="0">
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="label">
        <property name="text">
         <string>Nazwa użytkownika:</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="input_login">
-       <property name="placeholderText">
-        <string/>
-       </property>
-      </widget>
+      <widget class="QLineEdit" name="input_login"/>
      </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="label_3">
        <property name="text">
         <string>Hasło:</string>
        </property>
       </widget>
      </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Powtórz hasło:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Rodzaj konta:</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="1">
       <widget class="QLineEdit" name="input_password">
-       <property name="text">
-        <string/>
-       </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
        </property>
-       <property name="placeholderText">
-        <string/>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="input_confirm">
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
        </property>
-       <property name="clearButtonEnabled">
-        <bool>false</bool>
-       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QComboBox" name="combo_type">
+       <item>
+        <property name="text">
+         <string>Zwykłe</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Administrator</string>
+        </property>
+       </item>
       </widget>
      </item>
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <spacer name="horizontalSpacer_3">
        <property name="orientation">
@@ -132,7 +151,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="button_login">
+      <widget class="QPushButton" name="button_add_user">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -145,7 +164,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Zaloguj</string>
+        <string>Dodaj</string>
        </property>
       </widget>
      </item>

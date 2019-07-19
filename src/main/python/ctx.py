@@ -13,9 +13,5 @@ class Ctx:
     def resource(self, name: str) -> str:
         return self.app_ctx.get_resource(name)
 
-    def log(self, message: str, timeout: int = 0) -> None:
-        self.main_window.ui.statusBar.showMessage(message, timeout)
-        print(f"log: {message}")
-
 
 ctx = Ctx()

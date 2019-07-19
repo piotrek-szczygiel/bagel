@@ -1,6 +1,5 @@
 from PySide2.QtWidgets import QMainWindow
 
-from login_dialog import LoginDialog
 from ui.main_window import Ui_MainWindow
 
 
@@ -14,5 +13,3 @@ class MainWindow(QMainWindow):
 
         self.ui.listWidget_sellers.addItem("Test 1")
         self.ui.listWidget_sellers.addItem("Test 2")
-
-        self.login_dialog = LoginDialog(self)

@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'C:\dev\bagel\src\build\ui\main_window.ui',
 # licensing of 'C:\dev\bagel\src\build\ui\main_window.ui' applies.
 #
-# Created: Fri Jul 19 00:36:55 2019
+# Created: Fri Jul 19 02:12:46 2019
 #      by: pyside2-uic  running on PySide2 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -58,9 +58,6 @@ class Ui_MainWindow(object):
         self.menu_Plik = QtWidgets.QMenu(self.menubar)
         self.menu_Plik.setObjectName("menu_Plik")
         MainWindow.setMenuBar(self.menubar)
-        self.statusBar = QtWidgets.QStatusBar(MainWindow)
-        self.statusBar.setObjectName("statusBar")
-        MainWindow.setStatusBar(self.statusBar)
         self.actionExit = QtWidgets.QAction(MainWindow)
         self.actionExit.setObjectName("actionExit")
         self.menu_Plik.addAction(self.actionExit)

@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'C:\dev\bagel\src\build\ui\login_dialog.ui',
 # licensing of 'C:\dev\bagel\src\build\ui\login_dialog.ui' applies.
 #
-# Created: Fri Jul 19 00:36:54 2019
+# Created: Fri Jul 19 02:12:45 2019
 #      by: pyside2-uic  running on PySide2 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,8 +13,8 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_LoginDialog(object):
     def setupUi(self, LoginDialog):
         LoginDialog.setObjectName("LoginDialog")
-        LoginDialog.setWindowModality(QtCore.Qt.NonModal)
-        LoginDialog.resize(516, 258)
+        LoginDialog.setWindowModality(QtCore.Qt.ApplicationModal)
+        LoginDialog.resize(500, 260)
         LoginDialog.setModal(True)
         self.verticalLayout = QtWidgets.QVBoxLayout(LoginDialog)
         self.verticalLayout.setObjectName("verticalLayout")
@@ -28,6 +28,9 @@ class Ui_LoginDialog(object):
         self.label_logo.setObjectName("label_logo")
         self.horizontalLayout.addWidget(self.label_logo)
         self.label_2 = QtWidgets.QLabel(LoginDialog)
+        font = QtGui.QFont()
+        font.setPointSize(36)
+        self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.horizontalLayout.addWidget(self.label_2)
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -78,7 +81,7 @@ class Ui_LoginDialog(object):
 
     def retranslateUi(self, LoginDialog):
         LoginDialog.setWindowTitle(QtWidgets.QApplication.translate("LoginDialog", "Logowanie", None, -1))
-        self.label_2.setText(QtWidgets.QApplication.translate("LoginDialog", "<html><head/><body><p><span style=\" font-size:36pt; font-weight:600;\">Logowanie</span></p></body></html>", None, -1))
+        self.label_2.setText(QtWidgets.QApplication.translate("LoginDialog", "Logowanie", None, -1))
         self.label_3.setText(QtWidgets.QApplication.translate("LoginDialog", "Nazwa użytkownika:", None, -1))
         self.label_4.setText(QtWidgets.QApplication.translate("LoginDialog", "Hasło:", None, -1))
         self.button_login.setText(QtWidgets.QApplication.translate("LoginDialog", "Zaloguj", None, -1))
