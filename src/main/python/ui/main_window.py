@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'C:\dev\bagel\src\build\ui\main_window.ui',
 # licensing of 'C:\dev\bagel\src\build\ui\main_window.ui' applies.
 #
-# Created: Fri Jul 19 02:12:46 2019
+# Created: Fri Jul 19 06:26:57 2019
 #      by: pyside2-uic  running on PySide2 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -37,9 +37,9 @@ class Ui_MainWindow(object):
         self.tab_sales.setObjectName("tab_sales")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.tab_sales)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.listWidget_sellers = QtWidgets.QListWidget(self.tab_sales)
-        self.listWidget_sellers.setObjectName("listWidget_sellers")
-        self.horizontalLayout_2.addWidget(self.listWidget_sellers)
+        self.list_sellers = QtWidgets.QListWidget(self.tab_sales)
+        self.list_sellers.setObjectName("list_sellers")
+        self.horizontalLayout_2.addWidget(self.list_sellers)
         self.groupBox = QtWidgets.QGroupBox(self.tab_sales)
         self.groupBox.setObjectName("groupBox")
         self.horizontalLayout_2.addWidget(self.groupBox)

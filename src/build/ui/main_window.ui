@@ -62,7 +62,7 @@
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QListWidget" name="listWidget_sellers"/>
+         <widget class="QListWidget" name="list_sellers"/>
         </item>
         <item>
          <widget class="QGroupBox" name="groupBox">

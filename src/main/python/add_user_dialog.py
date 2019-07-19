@@ -1,5 +1,6 @@
 from hashlib import sha512
 
+from PySide2.QtCore import Qt
 from PySide2.QtGui import QPixmap
 from PySide2.QtWidgets import QDialog, QMessageBox
 
@@ -13,11 +14,13 @@ class AddUserDialog(QDialog):
         self.ui = Ui_AddUserDialog()
         self.ui.setupUi(self)
         self.ui.label_logo.setPixmap(QPixmap(ctx.resource("lock.png")))
-
         self.ui.input_confirm.textChanged.connect(self.check_passwords)
         self.ui.input_password.textChanged.connect(self.check_passwords)
-
         self.ui.button_add_user.clicked.connect(self.add_user)
+        self.setWindowFlags(
+            (self.windowFlags() | Qt.CustomizeWindowHint)
+            & ~Qt.WindowCloseButtonHint
+        )
 
     def check_passwords(self) -> None:
         password = self.ui.input_password.text()
@@ -72,4 +75,4 @@ class AddUserDialog(QDialog):
             QMessageBox.information(
                 self, "Sukces", "Pomyślnie dodano nowego użytkownika."
             )
-            self.close()
+            self.accept()

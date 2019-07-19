@@ -10,6 +10,3 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
 
         self.ui.actionExit.triggered.connect(self.close)
-
-        self.ui.listWidget_sellers.addItem("Test 1")
-        self.ui.listWidget_sellers.addItem("Test 2")

@@ -1,5 +1,6 @@
 from hashlib import sha512
 
+from PySide2.QtCore import Qt
 from PySide2.QtGui import QPixmap
 from PySide2.QtWidgets import QDialog, QMessageBox
 
@@ -14,6 +15,10 @@ class LoginDialog(QDialog):
         self.ui.setupUi(self)
         self.ui.label_logo.setPixmap(QPixmap(ctx.resource("lock.png")))
         self.ui.button_login.clicked.connect(self.login)
+        self.setWindowFlags(
+            (self.windowFlags() | Qt.CustomizeWindowHint)
+            & ~Qt.WindowCloseButtonHint
+        )
 
     def login(self) -> None:
         login = self.ui.input_login.text()
@@ -34,5 +39,7 @@ class LoginDialog(QDialog):
                 "Niepoprawna nazwa użytkownika lub hasło!",
             )
             self.ui.input_password.clear()
+            ctx.login = ""
         else:
-            self.close()
+            ctx.login = login
+            self.accept()

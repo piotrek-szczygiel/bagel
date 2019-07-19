@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'C:\dev\bagel\src\build\ui\add_user_dialog.ui',
 # licensing of 'C:\dev\bagel\src\build\ui\add_user_dialog.ui' applies.
 #
-# Created: Fri Jul 19 02:12:44 2019
+# Created: Fri Jul 19 06:26:56 2019
 #      by: pyside2-uic  running on PySide2 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
