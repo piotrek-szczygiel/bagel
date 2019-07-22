@@ -15,33 +15,17 @@
                 "panel": "shared",
                 "showReuseMessage": true,
                 "clear": true
-            }
-        },
-        {
-            "label": "compile ui",
-            "type": "shell",
-            "command": "python ${workspaceFolder}/src/build/ui/compile.py ${workspaceFolder}/src/build/ui ${workspaceFolder}/src/main/python/ui",
-            "problemMatcher": [],
-            "presentation": {
-                "echo": true,
-                "reveal": "silent",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": false
-            }
-        },
-        {
-            "label": "compile and run",
-            "type": "shell",
-            "dependsOn": [
-                "compile ui",
-                "run"
-            ],
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "ui watchdog",
+            "type": "shell",
+            "command": "pipenv run python src/build/ui_watchdog.py src/build/ui src/main/python/ui",
+            "isBackground": true
         }
     ]
 }
