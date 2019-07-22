@@ -100,13 +100,48 @@
     <property name="title">
      <string>&amp;Plik</string>
     </property>
+    <addaction name="actionOpenDir"/>
+    <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
+   <widget class="QMenu" name="menu_U_ytkownik">
+    <property name="title">
+     <string>&amp;Użytkownik</string>
+    </property>
+    <addaction name="actionAddUser"/>
+    <addaction name="actionDeleteUser"/>
+    <addaction name="separator"/>
+    <addaction name="actionLogout"/>
+   </widget>
    <addaction name="menu_Plik"/>
+   <addaction name="menu_U_ytkownik"/>
   </widget>
   <action name="actionExit">
    <property name="text">
-    <string>Wyjdź</string>
+    <string>&amp;Wyjdź</string>
+   </property>
+  </action>
+  <action name="actionOpenDir">
+   <property name="text">
+    <string>&amp;Otwórz folder z bazą</string>
+   </property>
+  </action>
+  <action name="actionAddUser">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Dodaj użytkownika</string>
+   </property>
+  </action>
+  <action name="actionLogout">
+   <property name="text">
+    <string>&amp;Wyloguj</string>
+   </property>
+  </action>
+  <action name="actionDeleteUser">
+   <property name="text">
+    <string>&amp;Usuń użytkownika</string>
    </property>
   </action>
  </widget>

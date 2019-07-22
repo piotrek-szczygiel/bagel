@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'C:\dev\bagel\src\build\ui\login_dialog.ui',
 # licensing of 'C:\dev\bagel\src\build\ui\login_dialog.ui' applies.
 #
-# Created: Fri Jul 19 06:26:56 2019
+# Created: Mon Jul 22 02:27:02 2019
 #      by: pyside2-uic  running on PySide2 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -61,7 +61,7 @@ class Ui_LoginDialog(object):
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem2)
         self.button_login = QtWidgets.QPushButton(LoginDialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.button_login.sizePolicy().hasHeightForWidth())
@@ -69,8 +69,15 @@ class Ui_LoginDialog(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.button_login.setFont(font)
+        self.button_login.setCheckable(False)
         self.button_login.setObjectName("button_login")
         self.horizontalLayout_2.addWidget(self.button_login)
+        self.button_cancel = QtWidgets.QPushButton(LoginDialog)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.button_cancel.setFont(font)
+        self.button_cancel.setObjectName("button_cancel")
+        self.horizontalLayout_2.addWidget(self.button_cancel)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
         self.verticalLayout.setStretch(0, 2)
         self.verticalLayout.setStretch(1, 1)
@@ -85,4 +92,5 @@ class Ui_LoginDialog(object):
         self.label_3.setText(QtWidgets.QApplication.translate("LoginDialog", "Nazwa użytkownika:", None, -1))
         self.label_4.setText(QtWidgets.QApplication.translate("LoginDialog", "Hasło:", None, -1))
         self.button_login.setText(QtWidgets.QApplication.translate("LoginDialog", "Zaloguj", None, -1))
+        self.button_cancel.setText(QtWidgets.QApplication.translate("LoginDialog", "Anuluj", None, -1))
 

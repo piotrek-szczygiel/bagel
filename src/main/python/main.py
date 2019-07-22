@@ -8,24 +8,27 @@ from PySide2.QtWidgets import QMainWindow
 
 from add_user_dialog import AddUserDialog
 from ctx import ctx
-from login_dialog import LoginDialog
 from main_window import MainWindow
 
 
 class Main:
     def __init__(self) -> None:
         self.main_window: QMainWindow
-        self.db_dir = user_data_dir("Bagel", "Angoland")
+        self.db_path = ""
+
+        ctx.main = self
 
     def start(self):
         ctx.app_ctx = ApplicationContext()
 
-        db_path = os.path.join(self.db_dir, "database.db")
+        db_dir = user_data_dir("Bagel", "Angoland")
 
-        if not os.path.isdir(self.db_dir):
-            os.makedirs(self.db_dir)
+        self.db_path = os.path.join(db_dir, "database.db")
 
-        ctx.db = sqlite3.connect(db_path)
+        if not os.path.isdir(db_dir):
+            os.makedirs(db_dir)
+
+        ctx.db = sqlite3.connect(self.db_path)
 
         c = ctx.db.cursor()
 
@@ -45,38 +48,28 @@ class Main:
             )
             ctx.db.commit()
 
-        add_admin = False
+        add_admin = True
 
-        if c.fetchone() is None:
-            add_admin = True
+        for user in c.fetchall():
+            if user[3] == 1:
+                add_admin = False
+                break
 
-        self.main_window = MainWindow()
-        self.main_window.show()
+        self.main_window = MainWindow(self.db_path)
 
         if add_admin:
             add_user_dialog = AddUserDialog(self.main_window)
             add_user_dialog.ui.combo_type.setDisabled(True)
             add_user_dialog.ui.combo_type.setCurrentIndex(1)
             add_user_dialog.ui.label_title.setText("Dodaj administratora")
-            add_user_dialog.accepted.connect(self.login)
+            add_user_dialog.setWindowTitle("Dodaj administratora")
+            add_user_dialog.accepted.connect(self.main_window.login)
             add_user_dialog.open()
         else:
-            self.login()
+            self.main_window.login()
 
         exit_code = ctx.app_ctx.app.exec_()
         sys.exit(exit_code)
-
-    def login(self) -> None:
-        login_dialog = LoginDialog(self.main_window)
-        login_dialog.accepted.connect(self.logged_in)
-        login_dialog.open()
-
-    def logged_in(self) -> None:
-        if ctx.login:
-            self.main_window.setWindowTitle("Bagel v0.1.0 - " + ctx.login)
-
-        for i in range(1, 11):
-            self.main_window.ui.list_sellers.addItem("Test " + str(i))
 
 
 if __name__ == "__main__":

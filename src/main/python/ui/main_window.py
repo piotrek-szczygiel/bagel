@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'C:\dev\bagel\src\build\ui\main_window.ui',
 # licensing of 'C:\dev\bagel\src\build\ui\main_window.ui' applies.
 #
-# Created: Fri Jul 19 06:26:57 2019
+# Created: Mon Jul 22 02:27:02 2019
 #      by: pyside2-uic  running on PySide2 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -57,11 +57,29 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         self.menu_Plik = QtWidgets.QMenu(self.menubar)
         self.menu_Plik.setObjectName("menu_Plik")
+        self.menu_U_ytkownik = QtWidgets.QMenu(self.menubar)
+        self.menu_U_ytkownik.setObjectName("menu_U_ytkownik")
         MainWindow.setMenuBar(self.menubar)
         self.actionExit = QtWidgets.QAction(MainWindow)
         self.actionExit.setObjectName("actionExit")
+        self.actionOpenDir = QtWidgets.QAction(MainWindow)
+        self.actionOpenDir.setObjectName("actionOpenDir")
+        self.actionAddUser = QtWidgets.QAction(MainWindow)
+        self.actionAddUser.setEnabled(False)
+        self.actionAddUser.setObjectName("actionAddUser")
+        self.actionLogout = QtWidgets.QAction(MainWindow)
+        self.actionLogout.setObjectName("actionLogout")
+        self.actionDeleteUser = QtWidgets.QAction(MainWindow)
+        self.actionDeleteUser.setObjectName("actionDeleteUser")
+        self.menu_Plik.addAction(self.actionOpenDir)
+        self.menu_Plik.addSeparator()
         self.menu_Plik.addAction(self.actionExit)
+        self.menu_U_ytkownik.addAction(self.actionAddUser)
+        self.menu_U_ytkownik.addAction(self.actionDeleteUser)
+        self.menu_U_ytkownik.addSeparator()
+        self.menu_U_ytkownik.addAction(self.actionLogout)
         self.menubar.addAction(self.menu_Plik.menuAction())
+        self.menubar.addAction(self.menu_U_ytkownik.menuAction())
 
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(0)
@@ -73,5 +91,10 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_documents), QtWidgets.QApplication.translate("MainWindow", "Dokumenty", None, -1))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_settings), QtWidgets.QApplication.translate("MainWindow", "Opcje", None, -1))
         self.menu_Plik.setTitle(QtWidgets.QApplication.translate("MainWindow", "&Plik", None, -1))
-        self.actionExit.setText(QtWidgets.QApplication.translate("MainWindow", "Wyjdź", None, -1))
+        self.menu_U_ytkownik.setTitle(QtWidgets.QApplication.translate("MainWindow", "&Użytkownik", None, -1))
+        self.actionExit.setText(QtWidgets.QApplication.translate("MainWindow", "&Wyjdź", None, -1))
+        self.actionOpenDir.setText(QtWidgets.QApplication.translate("MainWindow", "&Otwórz folder z bazą", None, -1))
+        self.actionAddUser.setText(QtWidgets.QApplication.translate("MainWindow", "&Dodaj użytkownika", None, -1))
+        self.actionLogout.setText(QtWidgets.QApplication.translate("MainWindow", "&Wyloguj", None, -1))
+        self.actionDeleteUser.setText(QtWidgets.QApplication.translate("MainWindow", "&Usuń użytkownika", None, -1))
 

@@ -1,6 +1,5 @@
 from hashlib import sha512
 
-from PySide2.QtCore import Qt
 from PySide2.QtGui import QPixmap
 from PySide2.QtWidgets import QDialog, QMessageBox
 
@@ -15,10 +14,7 @@ class LoginDialog(QDialog):
         self.ui.setupUi(self)
         self.ui.label_logo.setPixmap(QPixmap(ctx.resource("lock.png")))
         self.ui.button_login.clicked.connect(self.login)
-        self.setWindowFlags(
-            (self.windowFlags() | Qt.CustomizeWindowHint)
-            & ~Qt.WindowCloseButtonHint
-        )
+        self.ui.button_cancel.clicked.connect(self.close)
 
     def login(self) -> None:
         login = self.ui.input_login.text()
@@ -32,7 +28,9 @@ class LoginDialog(QDialog):
             (login, hash_password),
         )
 
-        if c.fetchone() is None:
+        user = c.fetchone()
+
+        if user is None:
             QMessageBox.critical(
                 self,
                 "Błąd logowania",
@@ -42,4 +40,9 @@ class LoginDialog(QDialog):
             ctx.login = ""
         else:
             ctx.login = login
+            ctx.admin = user[3] == 1
+
+            ctx.main.main_window.ui.actionAddUser.setEnabled(ctx.admin)
+            ctx.main.main_window.ui.actionDeleteUser.setEnabled(ctx.admin)
+
             self.accept()

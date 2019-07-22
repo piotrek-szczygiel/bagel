@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'C:\dev\bagel\src\build\ui\add_user_dialog.ui',
 # licensing of 'C:\dev\bagel\src\build\ui\add_user_dialog.ui' applies.
 #
-# Created: Fri Jul 19 06:26:56 2019
+# Created: Mon Jul 22 02:27:01 2019
 #      by: pyside2-uic  running on PySide2 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -71,7 +71,7 @@ class Ui_AddUserDialog(object):
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem2)
         self.button_add_user = QtWidgets.QPushButton(AddUserDialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.button_add_user.sizePolicy().hasHeightForWidth())
@@ -81,6 +81,12 @@ class Ui_AddUserDialog(object):
         self.button_add_user.setFont(font)
         self.button_add_user.setObjectName("button_add_user")
         self.horizontalLayout_2.addWidget(self.button_add_user)
+        self.button_cancel = QtWidgets.QPushButton(AddUserDialog)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.button_cancel.setFont(font)
+        self.button_cancel.setObjectName("button_cancel")
+        self.horizontalLayout_2.addWidget(self.button_cancel)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
 
         self.retranslateUi(AddUserDialog)
@@ -96,4 +102,5 @@ class Ui_AddUserDialog(object):
         self.combo_type.setItemText(0, QtWidgets.QApplication.translate("AddUserDialog", "Zwykłe", None, -1))
         self.combo_type.setItemText(1, QtWidgets.QApplication.translate("AddUserDialog", "Administrator", None, -1))
         self.button_add_user.setText(QtWidgets.QApplication.translate("AddUserDialog", "Dodaj", None, -1))
+        self.button_cancel.setText(QtWidgets.QApplication.translate("AddUserDialog", "Anuluj", None, -1))
 

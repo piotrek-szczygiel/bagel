@@ -1,6 +1,6 @@
+import sqlite3
 from hashlib import sha512
 
-from PySide2.QtCore import Qt
 from PySide2.QtGui import QPixmap
 from PySide2.QtWidgets import QDialog, QMessageBox
 
@@ -13,14 +13,21 @@ class AddUserDialog(QDialog):
         super(AddUserDialog, self).__init__(parent)
         self.ui = Ui_AddUserDialog()
         self.ui.setupUi(self)
-        self.ui.label_logo.setPixmap(QPixmap(ctx.resource("lock.png")))
+        self.ui.label_logo.setPixmap(QPixmap(ctx.resource("add_user.png")))
         self.ui.input_confirm.textChanged.connect(self.check_passwords)
         self.ui.input_password.textChanged.connect(self.check_passwords)
         self.ui.button_add_user.clicked.connect(self.add_user)
-        self.setWindowFlags(
-            (self.windowFlags() | Qt.CustomizeWindowHint)
-            & ~Qt.WindowCloseButtonHint
+        self.ui.button_cancel.clicked.connect(self.ask_close)
+
+    def ask_close(self) -> None:
+        answer = QMessageBox.question(
+            self,
+            "Potwierdź anulowanie",
+            "Czy na pewno chcesz anulować dodawanie użytkownika?",
         )
+
+        if answer == QMessageBox.Yes:
+            self.close()
 
     def check_passwords(self) -> None:
         password = self.ui.input_password.text()
@@ -67,6 +74,12 @@ class AddUserDialog(QDialog):
                 VALUES (?, ?, ?)
                 """,
                 (login, hash_password, admin),
+            )
+        except sqlite3.IntegrityError as e:
+            QMessageBox.critical(
+                self,
+                "Błąd",
+                f"Użytkownik o loginie {login} już istnieje!\n\n{str(e)}",
             )
         except Exception as e:
             QMessageBox.critical(self, "Błąd bazy danych", str(e))
