@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\dev\bagel\src\build\ui\add_user_dialog.ui',
-# licensing of 'C:\dev\bagel\src\build\ui\add_user_dialog.ui' applies.
+# Form implementation generated from reading ui file 'src\build\ui\add_user_dialog.ui',
+# licensing of 'src\build\ui\add_user_dialog.ui' applies.
 #
-# Created: Mon Jul 22 02:27:01 2019
+# Created: Mon Jul 22 20:09:02 2019
 #      by: pyside2-uic  running on PySide2 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -14,7 +14,7 @@ class Ui_AddUserDialog(object):
     def setupUi(self, AddUserDialog):
         AddUserDialog.setObjectName("AddUserDialog")
         AddUserDialog.setWindowModality(QtCore.Qt.ApplicationModal)
-        AddUserDialog.resize(500, 260)
+        AddUserDialog.resize(516, 339)
         self.verticalLayout = QtWidgets.QVBoxLayout(AddUserDialog)
         self.verticalLayout.setObjectName("verticalLayout")
         self.horizontalLayout = QtWidgets.QHBoxLayout()
@@ -22,7 +22,7 @@ class Ui_AddUserDialog(object):
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
         self.label_logo = QtWidgets.QLabel(AddUserDialog)
-        self.label_logo.setMinimumSize(QtCore.QSize(90, 0))
+        self.label_logo.setMinimumSize(QtCore.QSize(80, 80))
         self.label_logo.setText("")
         self.label_logo.setObjectName("label_logo")
         self.horizontalLayout.addWidget(self.label_logo)
@@ -38,18 +38,34 @@ class Ui_AddUserDialog(object):
         self.formLayout = QtWidgets.QFormLayout()
         self.formLayout.setObjectName("formLayout")
         self.label = QtWidgets.QLabel(AddUserDialog)
+        font = QtGui.QFont()
+        font.setWeight(75)
+        font.setBold(True)
+        self.label.setFont(font)
         self.label.setObjectName("label")
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.label)
         self.input_login = QtWidgets.QLineEdit(AddUserDialog)
         self.input_login.setObjectName("input_login")
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.input_login)
         self.label_3 = QtWidgets.QLabel(AddUserDialog)
+        font = QtGui.QFont()
+        font.setWeight(75)
+        font.setBold(True)
+        self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label_3)
         self.label_4 = QtWidgets.QLabel(AddUserDialog)
+        font = QtGui.QFont()
+        font.setWeight(75)
+        font.setBold(True)
+        self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.label_4)
         self.label_5 = QtWidgets.QLabel(AddUserDialog)
+        font = QtGui.QFont()
+        font.setWeight(75)
+        font.setBold(True)
+        self.label_5.setFont(font)
         self.label_5.setObjectName("label_5")
         self.formLayout.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.label_5)
         self.input_password = QtWidgets.QLineEdit(AddUserDialog)
@@ -95,7 +111,7 @@ class Ui_AddUserDialog(object):
     def retranslateUi(self, AddUserDialog):
         AddUserDialog.setWindowTitle(QtWidgets.QApplication.translate("AddUserDialog", "Dodaj użytkownika", None, -1))
         self.label_title.setText(QtWidgets.QApplication.translate("AddUserDialog", "Dodaj użytkownika", None, -1))
-        self.label.setText(QtWidgets.QApplication.translate("AddUserDialog", "Nazwa użytkownika:", None, -1))
+        self.label.setText(QtWidgets.QApplication.translate("AddUserDialog", "Login:", None, -1))
         self.label_3.setText(QtWidgets.QApplication.translate("AddUserDialog", "Hasło:", None, -1))
         self.label_4.setText(QtWidgets.QApplication.translate("AddUserDialog", "Powtórz hasło:", None, -1))
         self.label_5.setText(QtWidgets.QApplication.translate("AddUserDialog", "Rodzaj konta:", None, -1))

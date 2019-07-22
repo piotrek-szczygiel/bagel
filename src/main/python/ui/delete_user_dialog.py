@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\dev\bagel\src\build\ui\delete_user_dialog.ui',
-# licensing of 'C:\dev\bagel\src\build\ui\delete_user_dialog.ui' applies.
+# Form implementation generated from reading ui file 'src\build\ui\delete_user_dialog.ui',
+# licensing of 'src\build\ui\delete_user_dialog.ui' applies.
 #
-# Created: Mon Jul 22 02:27:01 2019
+# Created: Mon Jul 22 20:08:14 2019
 #      by: pyside2-uic  running on PySide2 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,7 +13,7 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_DeleteUserDialog(object):
     def setupUi(self, DeleteUserDialog):
         DeleteUserDialog.setObjectName("DeleteUserDialog")
-        DeleteUserDialog.resize(500, 175)
+        DeleteUserDialog.resize(516, 239)
         self.verticalLayout = QtWidgets.QVBoxLayout(DeleteUserDialog)
         self.verticalLayout.setObjectName("verticalLayout")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
@@ -21,7 +21,7 @@ class Ui_DeleteUserDialog(object):
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem)
         self.label_logo = QtWidgets.QLabel(DeleteUserDialog)
-        self.label_logo.setMinimumSize(QtCore.QSize(90, 0))
+        self.label_logo.setMinimumSize(QtCore.QSize(80, 80))
         self.label_logo.setText("")
         self.label_logo.setObjectName("label_logo")
         self.horizontalLayout_2.addWidget(self.label_logo)
@@ -37,6 +37,10 @@ class Ui_DeleteUserDialog(object):
         self.formLayout = QtWidgets.QFormLayout()
         self.formLayout.setObjectName("formLayout")
         self.label = QtWidgets.QLabel(DeleteUserDialog)
+        font = QtGui.QFont()
+        font.setWeight(75)
+        font.setBold(True)
+        self.label.setFont(font)
         self.label.setObjectName("label")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label)
         self.combo_users = QtWidgets.QComboBox(DeleteUserDialog)
@@ -58,6 +62,9 @@ class Ui_DeleteUserDialog(object):
         self.button_delete.setObjectName("button_delete")
         self.horizontalLayout.addWidget(self.button_delete)
         self.verticalLayout.addLayout(self.horizontalLayout)
+        self.verticalLayout.setStretch(0, 1)
+        self.verticalLayout.setStretch(1, 2)
+        self.verticalLayout.setStretch(2, 1)
 
         self.retranslateUi(DeleteUserDialog)
         QtCore.QMetaObject.connectSlotsByName(DeleteUserDialog)

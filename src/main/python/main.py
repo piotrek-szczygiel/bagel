@@ -23,7 +23,7 @@ class Main:
 
         db_dir = user_data_dir("Bagel", "Angoland")
 
-        self.db_path = os.path.join(db_dir, "database.db")
+        self.db_path = os.path.join(db_dir, "baza_danych.db")
 
         if not os.path.isdir(db_dir):
             os.makedirs(db_dir)
@@ -42,7 +42,28 @@ class Main:
                     "id"        INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                     "login"	    TEXT NOT NULL UNIQUE,
                     "password"  TEXT NOT NULL,
-                    "admin"     INTEGER NOT NULL DEFAULT 0
+                    "admin"     INTEGER NOT NULL
+                )
+                """
+            )
+            ctx.db.commit()
+
+        try:
+            c.execute("select * from contractors")
+        except sqlite3.OperationalError:
+            c.execute(
+                r"""
+                CREATE TABLE "contractors"
+                (
+                    "id"            INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    "first_name"    TEXT NOT NULL,
+                    "last_name"     TEXT NOT NULL,
+                    "zip_code"      INTEGER NOT NULL,
+                    "city"          TEXT NOT NULL,
+                    "street"        TEXT NOT NULL,
+                    "company_name"  TEXT NOT NULL,
+                    "nip"           INTEGER NOT NULL,
+                    "regon"         INTEGER NOT NULL
                 )
                 """
             )
@@ -50,6 +71,7 @@ class Main:
 
         add_admin = True
 
+        c.execute("select * from users")
         for user in c.fetchall():
             if user[3] == 1:
                 add_admin = False

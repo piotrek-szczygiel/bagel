@@ -1,7 +1,7 @@
 from hashlib import sha512
 
-from PySide2.QtGui import QPixmap
-from PySide2.QtWidgets import QDialog, QMessageBox
+from PySide2.QtGui import QIcon, QPixmap
+from PySide2.QtWidgets import QDialog, QLineEdit, QMessageBox
 
 from ctx import ctx
 from ui.login_dialog import Ui_LoginDialog
@@ -13,6 +13,12 @@ class LoginDialog(QDialog):
         self.ui = Ui_LoginDialog()
         self.ui.setupUi(self)
         self.ui.label_logo.setPixmap(QPixmap(ctx.resource("lock.png")))
+        self.ui.input_login.addAction(
+            QIcon(ctx.resource("login.png")), QLineEdit.LeadingPosition
+        )
+        self.ui.input_password.addAction(
+            QIcon(ctx.resource("password.png")), QLineEdit.LeadingPosition
+        )
         self.ui.button_login.clicked.connect(self.login)
         self.ui.button_cancel.clicked.connect(self.close)
 
@@ -42,7 +48,8 @@ class LoginDialog(QDialog):
             ctx.login = login
             ctx.admin = user[3] == 1
 
-            ctx.main.main_window.ui.actionAddUser.setEnabled(ctx.admin)
-            ctx.main.main_window.ui.actionDeleteUser.setEnabled(ctx.admin)
+            ctx.main.main_window.ui.action_add_user.setEnabled(ctx.admin)
+            ctx.main.main_window.ui.action_delete_user.setEnabled(ctx.admin)
+            ctx.main.main_window.ui.action_add_contractor.setEnabled(ctx.admin)
 
             self.accept()

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>816</width>
+    <height>639</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -44,6 +44,11 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
       <property name="tabPosition">
        <enum>QTabWidget::North</enum>
       </property>
@@ -73,6 +78,11 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Kontrahenci</string>
+       </attribute>
+      </widget>
       <widget class="QWidget" name="tab_documents">
        <attribute name="title">
         <string>Dokumenty</string>
@@ -92,7 +102,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>816</width>
      <height>21</height>
     </rect>
    </property>
@@ -100,33 +110,46 @@
     <property name="title">
      <string>&amp;Plik</string>
     </property>
-    <addaction name="actionOpenDir"/>
+    <addaction name="action_open_dir"/>
     <addaction name="separator"/>
-    <addaction name="actionExit"/>
+    <addaction name="action_exit"/>
    </widget>
    <widget class="QMenu" name="menu_U_ytkownik">
     <property name="title">
-     <string>&amp;Użytkownik</string>
+     <string>&amp;Użytkownicy</string>
     </property>
-    <addaction name="actionAddUser"/>
-    <addaction name="actionDeleteUser"/>
+    <addaction name="action_add_user"/>
+    <addaction name="action_delete_user"/>
     <addaction name="separator"/>
-    <addaction name="actionLogout"/>
+    <addaction name="action_logout"/>
+   </widget>
+   <widget class="QMenu" name="menu_Kontrahenci">
+    <property name="title">
+     <string>&amp;Kontrahenci</string>
+    </property>
+    <addaction name="action_add_contractor"/>
+    <addaction name="action_edit_contractor"/>
    </widget>
    <addaction name="menu_Plik"/>
    <addaction name="menu_U_ytkownik"/>
+   <addaction name="menu_Kontrahenci"/>
   </widget>
-  <action name="actionExit">
+  <action name="action_exit">
    <property name="text">
     <string>&amp;Wyjdź</string>
    </property>
   </action>
-  <action name="actionOpenDir">
+  <action name="action_open_dir">
    <property name="text">
     <string>&amp;Otwórz folder z bazą</string>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
   </action>
-  <action name="actionAddUser">
+  <action name="action_add_user">
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -134,14 +157,24 @@
     <string>&amp;Dodaj użytkownika</string>
    </property>
   </action>
-  <action name="actionLogout">
+  <action name="action_logout">
    <property name="text">
     <string>&amp;Wyloguj</string>
    </property>
   </action>
-  <action name="actionDeleteUser">
+  <action name="action_delete_user">
    <property name="text">
     <string>&amp;Usuń użytkownika</string>
+   </property>
+  </action>
+  <action name="action_add_contractor">
+   <property name="text">
+    <string>&amp;Dodaj kontrahenta</string>
+   </property>
+  </action>
+  <action name="action_edit_contractor">
+   <property name="text">
+    <string>&amp;Edytuj kontrahenta</string>
    </property>
   </action>
  </widget>

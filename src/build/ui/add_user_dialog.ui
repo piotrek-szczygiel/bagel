@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
-    <height>260</height>
+    <width>516</width>
+    <height>339</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,8 +36,8 @@
       <widget class="QLabel" name="label_logo">
        <property name="minimumSize">
         <size>
-         <width>90</width>
-         <height>0</height>
+         <width>80</width>
+         <height>80</height>
         </size>
        </property>
        <property name="text">
@@ -76,8 +76,14 @@
     <layout class="QFormLayout" name="formLayout">
      <item row="0" column="0">
       <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
-        <string>Nazwa użytkownika:</string>
+        <string>Login:</string>
        </property>
       </widget>
      </item>
@@ -86,6 +92,12 @@
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Hasło:</string>
        </property>
@@ -93,6 +105,12 @@
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_4">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Powtórz hasło:</string>
        </property>
@@ -100,6 +118,12 @@
      </item>
      <item row="3" column="0">
       <widget class="QLabel" name="label_5">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Rodzaj konta:</string>
        </property>

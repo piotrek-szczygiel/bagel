@@ -3,6 +3,7 @@ import subprocess
 
 from PySide2.QtWidgets import QMainWindow, QMessageBox
 
+from add_contractor_dialog import AddContractorDialog
 from add_user_dialog import AddUserDialog
 from ctx import ctx
 from delete_user_dialog import DeleteUserDialog
@@ -19,12 +20,14 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self.ui.actionExit.triggered.connect(self.close)
-        self.ui.actionOpenDir.triggered.connect(self.open_dir)
+        self.ui.action_exit.triggered.connect(self.close)
+        self.ui.action_open_dir.triggered.connect(self.open_dir)
 
-        self.ui.actionAddUser.triggered.connect(self.add_user)
-        self.ui.actionDeleteUser.triggered.connect(self.delete_user)
-        self.ui.actionLogout.triggered.connect(self.logout)
+        self.ui.action_add_user.triggered.connect(self.add_user)
+        self.ui.action_delete_user.triggered.connect(self.delete_user)
+        self.ui.action_logout.triggered.connect(self.logout)
+
+        self.ui.action_add_contractor.triggered.connect(self.add_contractor)
 
     def open_dir(self) -> None:
         if os.name == "nt":
@@ -35,25 +38,25 @@ class MainWindow(QMainWindow):
         if not ctx.admin:
             return
 
-        add_user_dialog = AddUserDialog(self)
-        add_user_dialog.accepted.connect(self.login)
-        add_user_dialog.open()
+        dialog = AddUserDialog(self)
+        dialog.accepted.connect(self.login)
+        dialog.open()
 
     def delete_user(self) -> None:
         if not ctx.admin:
             return
 
-        delete_user_dialog = DeleteUserDialog(self)
-        delete_user_dialog.open()
+        dialog = DeleteUserDialog(self)
+        dialog.open()
 
     def login(self) -> None:
         if ctx.login:
             return
 
         self.hide()
-        login_dialog = LoginDialog(self)
-        login_dialog.accepted.connect(self.logged_in)
-        login_dialog.open()
+        dialog = LoginDialog(self)
+        dialog.accepted.connect(self.logged_in)
+        dialog.open()
 
     def logged_in(self) -> None:
         if not ctx.login:
@@ -81,3 +84,10 @@ class MainWindow(QMainWindow):
         ctx.login = ""
 
         self.login()
+
+    def add_contractor(self) -> None:
+        if not ctx.admin:
+            return
+
+        dialog = AddContractorDialog(self)
+        dialog.open()
