@@ -6,7 +6,6 @@ from appdirs import user_data_dir
 from fbs_runtime.application_context.PySide2 import ApplicationContext
 from PySide2.QtWidgets import QMainWindow
 
-from add_user_dialog import AddUserDialog
 from ctx import ctx
 from main_window import MainWindow
 
@@ -80,13 +79,7 @@ class Main:
         self.main_window = MainWindow(self.db_path)
 
         if add_admin:
-            add_user_dialog = AddUserDialog(self.main_window)
-            add_user_dialog.ui.combo_type.setDisabled(True)
-            add_user_dialog.ui.combo_type.setCurrentIndex(1)
-            add_user_dialog.ui.label_title.setText("Dodaj administratora")
-            add_user_dialog.setWindowTitle("Dodaj administratora")
-            add_user_dialog.accepted.connect(self.main_window.login)
-            add_user_dialog.open()
+            self.main_window.add_user(first_time=True)
         else:
             self.main_window.login()
 

@@ -1,21 +1,26 @@
 import sqlite3
 from hashlib import sha512
 
+from PySide2.QtCore import Qt, Signal
 from PySide2.QtGui import QPixmap
-from PySide2.QtWidgets import QDialog, QMessageBox
+from PySide2.QtWidgets import QMessageBox, QWidget
 
 from ctx import ctx
-from ui.add_user_dialog import Ui_AddUserDialog
+from ui.add_user import Ui_AddUser
 
 
-class AddUserDialog(QDialog):
+class AddUser(QWidget):
+    finished = Signal(bool)
+
     def __init__(self, parent=None) -> None:
-        super(AddUserDialog, self).__init__(parent)
-        self.ui = Ui_AddUserDialog()
+        super(AddUser, self).__init__(parent)
+        self.ui = Ui_AddUser()
         self.ui.setupUi(self)
+        self.setWindowFlags(Qt.Widget)
         self.ui.label_logo.setPixmap(QPixmap(ctx.resource("add_user.png")))
         self.ui.input_confirm.textChanged.connect(self.check_passwords)
         self.ui.input_password.textChanged.connect(self.check_passwords)
+        self.ui.input_confirm.returnPressed.connect(self.add_user)
         self.ui.button_add_user.clicked.connect(self.add_user)
         self.ui.button_cancel.clicked.connect(self.ask_close)
 
@@ -27,7 +32,7 @@ class AddUserDialog(QDialog):
         )
 
         if answer == QMessageBox.Yes:
-            self.close()
+            self.finished.emit(False)
 
     def check_passwords(self) -> None:
         password = self.ui.input_password.text()
@@ -77,9 +82,7 @@ class AddUserDialog(QDialog):
             )
         except sqlite3.IntegrityError as e:
             QMessageBox.critical(
-                self,
-                "Błąd",
-                f"Użytkownik o loginie {login} już istnieje!\n\n{str(e)}",
+                self, "Błąd", f"Użytkownik o loginie {login} już istnieje!\n\n{str(e)}"
             )
         except Exception as e:
             QMessageBox.critical(self, "Błąd bazy danych", str(e))
@@ -88,4 +91,4 @@ class AddUserDialog(QDialog):
             QMessageBox.information(
                 self, "Sukces", "Pomyślnie dodano nowego użytkownika."
             )
-            self.accept()
+            self.finished.emit(True)

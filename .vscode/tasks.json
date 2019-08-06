@@ -25,7 +25,10 @@
             "label": "ui watchdog",
             "type": "shell",
             "command": "pipenv run python src/build/ui_watchdog.py src/build/ui src/main/python/ui",
-            "isBackground": true
+            "isBackground": true,
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
         }
     ]
 }

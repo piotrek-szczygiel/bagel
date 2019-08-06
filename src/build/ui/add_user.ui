@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AddUserDialog</class>
- <widget class="QDialog" name="AddUserDialog">
-  <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
-  </property>
+ <class>AddUser</class>
+ <widget class="QWidget" name="AddUser">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -12,9 +9,6 @@
     <width>516</width>
     <height>339</height>
    </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Dodaj użytkownika</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -189,6 +183,9 @@
        </property>
        <property name="text">
         <string>Dodaj</string>
+       </property>
+       <property name="default">
+        <bool>true</bool>
        </property>
       </widget>
      </item>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DeleteUserDialog</class>
- <widget class="QDialog" name="DeleteUserDialog">
+ <class>DeleteUser</class>
+ <widget class="QWidget" name="DeleteUser">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -9,9 +9,6 @@
     <width>516</width>
     <height>239</height>
    </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Usuń użytkownika</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,2,1">
    <item>
@@ -139,6 +136,9 @@
        </property>
        <property name="text">
         <string>Usuń</string>
+       </property>
+       <property name="default">
+        <bool>true</bool>
        </property>
       </widget>
      </item>

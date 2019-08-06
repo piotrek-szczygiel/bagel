@@ -6,21 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>816</width>
-    <height>639</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
-  </property>
-  <property name="acceptDrops">
-   <bool>false</bool>
   </property>
   <property name="windowTitle">
    <string notr="true">Bagel v0.1.0</string>
   </property>
   <property name="locale">
    <locale language="Polish" country="Poland"/>
-  </property>
-  <property name="unifiedTitleAndToolBarOnMac">
-   <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -36,65 +30,6 @@
     <property name="bottomMargin">
      <number>6</number>
     </property>
-    <item>
-     <widget class="QTabWidget" name="tabWidget">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="tabPosition">
-       <enum>QTabWidget::North</enum>
-      </property>
-      <property name="tabShape">
-       <enum>QTabWidget::Rounded</enum>
-      </property>
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <property name="tabBarAutoHide">
-       <bool>false</bool>
-      </property>
-      <widget class="QWidget" name="tab_sales">
-       <attribute name="title">
-        <string>Sprzedaż</string>
-       </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QListWidget" name="list_sellers"/>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="groupBox">
-          <property name="title">
-           <string>Szczegółowe informacje o sprzedawcy</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tab">
-       <attribute name="title">
-        <string>Kontrahenci</string>
-       </attribute>
-      </widget>
-      <widget class="QWidget" name="tab_documents">
-       <attribute name="title">
-        <string>Dokumenty</string>
-       </attribute>
-      </widget>
-      <widget class="QWidget" name="tab_settings">
-       <attribute name="title">
-        <string>Opcje</string>
-       </attribute>
-      </widget>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -102,7 +37,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>816</width>
+     <width>800</width>
      <height>21</height>
     </rect>
    </property>
@@ -118,10 +53,11 @@
     <property name="title">
      <string>&amp;Użytkownicy</string>
     </property>
+    <addaction name="action_login"/>
+    <addaction name="action_logout"/>
+    <addaction name="separator"/>
     <addaction name="action_add_user"/>
     <addaction name="action_delete_user"/>
-    <addaction name="separator"/>
-    <addaction name="action_logout"/>
    </widget>
    <widget class="QMenu" name="menu_Kontrahenci">
     <property name="title">
@@ -158,23 +94,43 @@
    </property>
   </action>
   <action name="action_logout">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>&amp;Wyloguj</string>
    </property>
   </action>
   <action name="action_delete_user">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>&amp;Usuń użytkownika</string>
    </property>
   </action>
   <action name="action_add_contractor">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>&amp;Dodaj kontrahenta</string>
    </property>
   </action>
   <action name="action_edit_contractor">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>&amp;Edytuj kontrahenta</string>
+   </property>
+  </action>
+  <action name="action_login">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Zaloguj</string>
    </property>
   </action>
  </widget>

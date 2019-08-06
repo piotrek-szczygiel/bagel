@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AddContractorDialog</class>
- <widget class="QDialog" name="AddContractorDialog">
+ <class>AddContractor</class>
+ <widget class="QWidget" name="AddContractor">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -9,9 +9,6 @@
     <width>500</width>
     <height>420</height>
    </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Dodaj kontrahenta</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,2,1">
    <item>
@@ -336,6 +333,9 @@
        </property>
        <property name="text">
         <string>Dodaj</string>
+       </property>
+       <property name="default">
+        <bool>true</bool>
        </property>
       </widget>
      </item>

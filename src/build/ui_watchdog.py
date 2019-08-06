@@ -44,27 +44,18 @@ class MyHandler(PatternMatchingEventHandler):
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print(
-            "usage: {} intput_dir output_dir".format(sys.argv[0]),
-            file=sys.stderr,
-        )
+        print("usage: {} intput_dir output_dir".format(sys.argv[0]), file=sys.stderr)
         sys.exit(1)
 
     input_dir = os.path.normpath(sys.argv[1])
     output_dir = os.path.normpath(sys.argv[2])
 
     if not os.path.isdir(input_dir):
-        print(
-            "input directory {} does not exists".format(input_dir),
-            file=sys.stderr,
-        )
+        print("input directory {} does not exists".format(input_dir), file=sys.stderr)
         sys.exit(1)
 
     if not os.path.isdir(output_dir):
-        print(
-            "output directory {} does not exists".format(output_dir),
-            file=sys.stderr,
-        )
+        print("output directory {} does not exists".format(output_dir), file=sys.stderr)
         sys.exit(1)
 
     logging.basicConfig(

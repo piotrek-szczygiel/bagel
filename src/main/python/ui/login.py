@@ -1,33 +1,31 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'src\build\ui\login_dialog.ui',
-# licensing of 'src\build\ui\login_dialog.ui' applies.
+# Form implementation generated from reading ui file 'src\build\ui\login.ui',
+# licensing of 'src\build\ui\login.ui' applies.
 #
-# Created: Mon Jul 22 20:10:16 2019
+# Created: Tue Aug  6 19:10:25 2019
 #      by: pyside2-uic  running on PySide2 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
 
 from PySide2 import QtCore, QtGui, QtWidgets
 
-class Ui_LoginDialog(object):
-    def setupUi(self, LoginDialog):
-        LoginDialog.setObjectName("LoginDialog")
-        LoginDialog.setWindowModality(QtCore.Qt.ApplicationModal)
-        LoginDialog.resize(400, 250)
-        LoginDialog.setModal(True)
-        self.verticalLayout = QtWidgets.QVBoxLayout(LoginDialog)
+class Ui_Login(object):
+    def setupUi(self, Login):
+        Login.setObjectName("Login")
+        Login.resize(400, 250)
+        self.verticalLayout = QtWidgets.QVBoxLayout(Login)
         self.verticalLayout.setObjectName("verticalLayout")
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
-        self.label_logo = QtWidgets.QLabel(LoginDialog)
+        self.label_logo = QtWidgets.QLabel(Login)
         self.label_logo.setMinimumSize(QtCore.QSize(80, 80))
         self.label_logo.setText("")
         self.label_logo.setObjectName("label_logo")
         self.horizontalLayout.addWidget(self.label_logo)
-        self.label_2 = QtWidgets.QLabel(LoginDialog)
+        self.label_2 = QtWidgets.QLabel(Login)
         font = QtGui.QFont()
         font.setPointSize(36)
         self.label_2.setFont(font)
@@ -43,26 +41,26 @@ class Ui_LoginDialog(object):
         self.formLayout = QtWidgets.QFormLayout()
         self.formLayout.setFormAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.formLayout.setObjectName("formLayout")
-        self.label_3 = QtWidgets.QLabel(LoginDialog)
+        self.label_3 = QtWidgets.QLabel(Login)
         font = QtGui.QFont()
         font.setWeight(75)
         font.setBold(True)
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.label_3)
-        self.input_login = QtWidgets.QLineEdit(LoginDialog)
+        self.input_login = QtWidgets.QLineEdit(Login)
         self.input_login.setPlaceholderText("")
         self.input_login.setClearButtonEnabled(True)
         self.input_login.setObjectName("input_login")
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.input_login)
-        self.label_4 = QtWidgets.QLabel(LoginDialog)
+        self.label_4 = QtWidgets.QLabel(Login)
         font = QtGui.QFont()
         font.setWeight(75)
         font.setBold(True)
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label_4)
-        self.input_password = QtWidgets.QLineEdit(LoginDialog)
+        self.input_password = QtWidgets.QLineEdit(Login)
         self.input_password.setText("")
         self.input_password.setEchoMode(QtWidgets.QLineEdit.Password)
         self.input_password.setPlaceholderText("")
@@ -77,7 +75,7 @@ class Ui_LoginDialog(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem4)
-        self.button_login = QtWidgets.QPushButton(LoginDialog)
+        self.button_login = QtWidgets.QPushButton(Login)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -87,12 +85,15 @@ class Ui_LoginDialog(object):
         font.setPointSize(12)
         self.button_login.setFont(font)
         self.button_login.setCheckable(False)
+        self.button_login.setAutoDefault(True)
+        self.button_login.setDefault(True)
         self.button_login.setObjectName("button_login")
         self.horizontalLayout_2.addWidget(self.button_login)
-        self.button_cancel = QtWidgets.QPushButton(LoginDialog)
+        self.button_cancel = QtWidgets.QPushButton(Login)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.button_cancel.setFont(font)
+        self.button_cancel.setAutoDefault(True)
         self.button_cancel.setObjectName("button_cancel")
         self.horizontalLayout_2.addWidget(self.button_cancel)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -100,14 +101,13 @@ class Ui_LoginDialog(object):
         self.verticalLayout.setStretch(1, 2)
         self.verticalLayout.setStretch(2, 1)
 
-        self.retranslateUi(LoginDialog)
-        QtCore.QMetaObject.connectSlotsByName(LoginDialog)
+        self.retranslateUi(Login)
+        QtCore.QMetaObject.connectSlotsByName(Login)
 
-    def retranslateUi(self, LoginDialog):
-        LoginDialog.setWindowTitle(QtWidgets.QApplication.translate("LoginDialog", "Logowanie", None, -1))
-        self.label_2.setText(QtWidgets.QApplication.translate("LoginDialog", "Logowanie", None, -1))
-        self.label_3.setText(QtWidgets.QApplication.translate("LoginDialog", "Login:", None, -1))
-        self.label_4.setText(QtWidgets.QApplication.translate("LoginDialog", "Hasło:", None, -1))
-        self.button_login.setText(QtWidgets.QApplication.translate("LoginDialog", "Zaloguj", None, -1))
-        self.button_cancel.setText(QtWidgets.QApplication.translate("LoginDialog", "Anuluj", None, -1))
+    def retranslateUi(self, Login):
+        self.label_2.setText(QtWidgets.QApplication.translate("Login", "Logowanie", None, -1))
+        self.label_3.setText(QtWidgets.QApplication.translate("Login", "Login:", None, -1))
+        self.label_4.setText(QtWidgets.QApplication.translate("Login", "Hasło:", None, -1))
+        self.button_login.setText(QtWidgets.QApplication.translate("Login", "Zaloguj", None, -1))
+        self.button_cancel.setText(QtWidgets.QApplication.translate("Login", "Anuluj", None, -1))
 

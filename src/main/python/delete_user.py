@@ -1,15 +1,19 @@
+from PySide2.QtCore import Qt, Signal
 from PySide2.QtGui import QPixmap
-from PySide2.QtWidgets import QDialog, QMessageBox
+from PySide2.QtWidgets import QMessageBox, QWidget
 
 from ctx import ctx
-from ui.delete_user_dialog import Ui_DeleteUserDialog
+from ui.delete_user import Ui_DeleteUser
 
 
-class DeleteUserDialog(QDialog):
+class DeleteUser(QWidget):
+    finished = Signal()
+
     def __init__(self, parent=None) -> None:
-        super(DeleteUserDialog, self).__init__(parent)
-        self.ui = Ui_DeleteUserDialog()
+        super(DeleteUser, self).__init__(parent)
+        self.ui = Ui_DeleteUser()
         self.ui.setupUi(self)
+        self.setWindowFlags(Qt.Widget)
         self.ui.label_logo.setPixmap(QPixmap(ctx.resource("delete_user.png")))
         self.ui.button_delete.clicked.connect(self.delete_user)
 
@@ -43,7 +47,7 @@ class DeleteUserDialog(QDialog):
             if ctx.login == login:
                 ctx.main.main_window.logout(False)
 
-            self.accept()
+            self.finished.emit()
         else:
             QMessageBox.critical(
                 self, "Błąd", f"Nie udało się usunąć użytkownika {login}"

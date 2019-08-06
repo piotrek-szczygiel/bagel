@@ -1,20 +1,21 @@
-from PySide2.QtCore import QRegExp
+from PySide2.QtCore import QRegExp, Qt, Signal
 from PySide2.QtGui import QIntValidator, QPixmap, QRegExpValidator
-from PySide2.QtWidgets import QDialog
+from PySide2.QtWidgets import QWidget
 
 import utils
 from ctx import ctx
-from ui.add_contractor_dialog import Ui_AddContractorDialog
+from ui.add_contractor import Ui_AddContractor
 
 
-class AddContractorDialog(QDialog):
+class AddContractor(QWidget):
+    finished = Signal()
+
     def __init__(self, parent=None) -> None:
-        super(AddContractorDialog, self).__init__(parent)
-        self.ui = Ui_AddContractorDialog()
+        super(AddContractor, self).__init__(parent)
+        self.ui = Ui_AddContractor()
         self.ui.setupUi(self)
-        self.ui.label_logo.setPixmap(
-            QPixmap(ctx.resource("add_contractor.png"))
-        )
+        self.setWindowFlags(Qt.Widget)
+        self.ui.label_logo.setPixmap(QPixmap(ctx.resource("add_contractor.png")))
         self.ui.input_zip_1.setValidator(QIntValidator(0, 99))
         self.ui.input_zip_2.setValidator(QIntValidator(0, 999))
         self.ui.input_zip_1.textEdited.connect(self.skip_zip_1)

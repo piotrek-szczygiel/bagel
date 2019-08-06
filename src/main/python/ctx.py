@@ -10,6 +10,7 @@ class Ctx:
         self.db: sqlite3.Connection
         self.main: Any
 
+        self.logged_in = False
         self.login: str = ""
         self.admin = False
 
