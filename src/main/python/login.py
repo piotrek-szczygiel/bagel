@@ -35,7 +35,7 @@ class Login(QWidget):
 
         c = ctx.db.cursor()
         c.execute(
-            "select * from users where login=? and password=?", (login, hash_password)
+            "SELECT * FROM users WHERE login=? and password=?", (login, hash_password)
         )
 
         user = c.fetchone()

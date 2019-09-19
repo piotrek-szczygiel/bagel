@@ -17,10 +17,13 @@ class AddUser(QWidget):
         self.ui = Ui_AddUser()
         self.ui.setupUi(self)
         self.setWindowFlags(Qt.Widget)
+
         self.ui.label_logo.setPixmap(QPixmap(ctx.resource("add_user.png")))
+
         self.ui.input_confirm.textChanged.connect(self.check_passwords)
         self.ui.input_password.textChanged.connect(self.check_passwords)
         self.ui.input_confirm.returnPressed.connect(self.add_user)
+
         self.ui.button_add_user.clicked.connect(self.add_user)
         self.ui.button_cancel.clicked.connect(self.ask_close)
 
@@ -55,13 +58,13 @@ class AddUser(QWidget):
         errors = ""
 
         if not login:
-            errors += "Proszę wprowadzić nazwę użytkownika!\n"
+            errors += "Proszę wprowadzić nazwę użytkownika.\n"
 
         if len(password) < 6:
-            errors += "Hasło nie może być krótsze niż 6 znaków!\n"
+            errors += "Hasło nie może być krótsze niż 6 znaków.\n"
 
         if password != confirm:
-            errors += "Hasła się nie zgadzają!\n"
+            errors += "Hasła się nie zgadzają.\n"
 
         if errors:
             errors = errors.strip()

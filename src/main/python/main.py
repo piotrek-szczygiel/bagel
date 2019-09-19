@@ -48,7 +48,7 @@ class Main:
             ctx.db.commit()
 
         try:
-            c.execute("select * from contractors")
+            c.execute("SELECT * FROM contractors")
         except sqlite3.OperationalError:
             c.execute(
                 r"""
@@ -62,7 +62,7 @@ class Main:
                     "street"        TEXT NOT NULL,
                     "company_name"  TEXT NOT NULL,
                     "nip"           INTEGER NOT NULL,
-                    "regon"         INTEGER NOT NULL
+                    "regon"         INTEGER
                 )
                 """
             )
@@ -70,7 +70,7 @@ class Main:
 
         add_admin = True
 
-        c.execute("select * from users")
+        c.execute("SELECT * FROM users")
         for user in c.fetchall():
             if user[3] == 1:
                 add_admin = False

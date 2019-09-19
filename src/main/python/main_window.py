@@ -41,6 +41,9 @@ class MainWindow(QMainWindow):
         self.ui.action_add_contractor.setEnabled(ctx.admin)
         self.ui.action_edit_contractor.setEnabled(ctx.admin)
 
+    def main_window(self) -> None:
+        self.setCentralWidget(MainWidget(self))
+
     def open_dir(self) -> None:
         if os.name == "nt":
             cmd = f'explorer /select,"{self.db_path}"'
@@ -74,6 +77,15 @@ class MainWindow(QMainWindow):
         w.ui.input_login.setFocus()
         self.setCentralWidget(w)
 
+    def add_contractor(self) -> None:
+        if not ctx.admin:
+            return
+
+        w = AddContractor(self)
+        w.finished.connect(self.main_window)
+        w.ui.input_first_name.setFocus()
+        self.setCentralWidget(w)
+
     def delete_user(self) -> None:
         if not ctx.admin:
             return
@@ -100,7 +112,7 @@ class MainWindow(QMainWindow):
         )
 
         self.refresh_actions()
-        self.setCentralWidget(MainWidget(self))
+        self.main_window()
 
     def logout(self, ask=True) -> None:
         if not ctx.login:
@@ -122,11 +134,3 @@ class MainWindow(QMainWindow):
 
         self.refresh_actions()
         self.login()
-
-    def add_contractor(self) -> None:
-        if not ctx.admin:
-            return
-
-        w = AddContractor(self)
-        w.ui.input_first_name.setFocus()
-        self.setCentralWidget(w)
