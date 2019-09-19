@@ -1,2 +1,33 @@
+[tool.poetry]
+name = "bagel"
+version = "0.1.0"
+description = "Application for managing bagels sales"
+authors = ["Piotr Szczygieł <szczygiel.p@gmail.com>"]
+license = "LGPL-3.0"
+readme = "README.md"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry.dependencies]
+python = "~3.6"
+fbs = "*"
+pyside2 = "*"
+appdirs = "*"
+pefile = {version = "*", platform = "win32"}
+pywin32-ctypes = {version = "*", platform = "win32"}
+
+[tool.poetry.dev-dependencies]
+flake8 = "*"
+mypy = "*"
+rope = "*"
+watchdog = "*"
+black = {version = "*", allows-prereleases = true}
+isort = "*"
+
 [tool.black]
 exclude = ".vscode|target|src/build|src/main/python/ui"
+
+[tool.isort]
+skip = "src/main/python/ui"
